@@ -32,14 +32,21 @@ def index():
                 webhook_event = entry['messaging'][0]
                 print(webhook_event)
                 
+                sender_psid = webhook_event['sender']['id']
+                print('sender_psid',sender_psid)
+
+                is_message = 'message' in webhook_event.keys()
+                print('is_message',is_message)
+
+                if is_message:
+                    pass
+                    # xich het vao db
+                    
+
+                
             return Response('EVENT_RECEIVED', status=200, mimetype='application/json')
         else:
             return Response('404 Not Found', status=404, mimetype='application/json')
 
 if __name__ == '__main__':
     app.run(debug=True,host="0.0.0.0",port=3089)
-
-
-# curl -H "Content-Type: application/json" -X POST "localhost:3089/webhook"
-
-#  -d '{"object": "page", "entry": [{"messaging": [{"message": "TEST_MESSAGE"}]}]}'
