@@ -41,7 +41,7 @@ def index():
                 if is_message:
                     pass
                     # xich het vao db
-                    
+
 
                 
             return Response('EVENT_RECEIVED', status=200, mimetype='application/json')
